@@ -1,0 +1,149 @@
+html, #sfcss  {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+#sfcss {
+  display: flex;
+  flex-direction: row;
+  font-family: 'Lucida Grande','Lucida Sans Unicode','Lucida Sans',Geneva,Verdana,sans-serif;
+}
+.login {
+  background-color: @c1;
+  display: block;
+  width: 100%;
+  a {
+    color: #999;
+    &:hover {
+      color: orange;
+    }
+  }
+}
+aside {
+  background: @c1;
+  transition: all 0.2s ease;
+}
+aside.in {
+  visibility: hidden;
+  margin-left: -240px;
+}
+main {
+  background: @c4;
+  flex: auto;
+  display: flex !important;
+  flex-direction: column;
+  min-width: 320px;
+}
+article {
+  flex: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+////////////// Muda no responsivo de tab para select
+.mobile-tab-headings{
+  display: none;
+  @media only screen and (max-width:768px) {
+    width: 100%;
+    display: block;
+  }
+  + .nav-tabs {
+    @media only screen and (max-width:768px) {
+      display: none;
+    }
+  }
+}
+/////////////// adiciona : após o selec para itens de horário.
+.dot-timer {
+  &:after {
+    position: absolute;
+    content: ':';
+    font-weight: bold;
+    right: 0;
+    top: 7px;
+  }
+}
+//////////////// Classes axuliares.
+.s-breadcrumb {
+  position: relative;
+  border: 1px solid @c2;
+  overflow: hidden;
+}
+.Painel--border {
+  border: 1px solid @c2;
+}
+.Panel-pagination {
+  margin: 0;
+}
+.fieldset-pautas {
+  border: 1px solid @c2;
+  float: left;
+  padding: 5px;
+  overflow-y: scroll;
+  max-height: 350px;
+  margin-bottom: 15px;
+}
+.retrato-crop {
+  width: 75px;
+  height: 75px;
+  border: 1px solid @c2;
+  padding: 2px;
+}
+.Flag-Figure--maxwidth-xs > img {
+  max-width: 32px !important;
+}
+.input-xs {
+  height: 22px!important;
+  padding: 2px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 0px;
+}
+.v-center {
+  min-height:200px;
+  display: flex;
+  justify-content:center;
+  flex-flow: column wrap;
+}
+.text-responsive {
+  text-align: center;
+}
+//////////////////////////// transforma table responsiva
+@media screen and (max-width: 760px) {
+  .panel-body {
+    padding-left:2px;
+    padding-right:2px;
+  }
+  article {
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+  }
+  .text-responsive {
+    text-align: left !important;
+  }
+  .table-rp {
+    width: 100%;
+      tr {border-bottom: transparent 15px; border-bottom: solid white 15px;}
+      tr:nth-of-type(2n) {background-color: inherit;}
+      tr td:first-child {
+        background: #f0f0f0;
+        font-weight: bold;
+      }
+      thead {display: none;}
+      tbody td {display: flex;}
+      tbody td:before {
+        float: left;
+        min-width: 100px;
+        content: attr(data-th);
+        display: block;
+        font-weight: bold;
+      }
+  }
+  .thead-visible {
+    display: block !important;
+    th,tr {
+      display: block !important;
+      border-bottom: none !important;
+    }
+  }
+}

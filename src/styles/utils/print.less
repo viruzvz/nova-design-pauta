@@ -1,0 +1,79 @@
+@media print {
+    * {
+        text-shadow:none;
+        filter:none;
+        border: none !important;
+    }
+    body{
+        line-height: 1.4em;
+        display: block !important;
+    }
+    @page {
+        margin: 0.5cm;
+    }
+    .page-break { 
+        display: block; 
+        page-break-before: always;
+    }
+    .col-md-*{
+        padding: 0 !important;
+    }
+    .btn {background-color: transparent; padding:0; border:none;}
+    h1 {
+        font-size: 24pt;
+    }
+    h2 {
+        font-size: 18pt;
+    }
+    h3 {
+        font-size: 14pt;
+    }
+    q:after {
+        content: " (" attr(cite) ")";
+    }
+    a, a:visited {
+        text-decoration: none;
+    }
+    a[href]:after {
+        content: none !important;
+    }
+    p {
+        width: 100%;
+    }
+    p a {
+        word-wrap: break-word;
+    }
+    nav, footer, video, audio, object, embed, aside, header, .navbar-nav--secundaria, .s-bar{ 
+        display:none; 
+    }
+    .panel-body {
+        padding: 0;
+    }
+    .print {
+        display:block;
+    }
+    .no-print { 
+        display:none; 
+    }
+    img {
+        max-width: 100%;
+    }
+    .wrap { 
+        width: 100%; 
+        margin: 0; 
+        float: none; 
+    }
+    .tag-tarefatv{
+        background:#427597!important;
+        color:white!important;
+        font-size:12px;
+        padding:2px 5px 2px 5px;
+        color-adjust:exact;
+    }
+        main{
+            display:block!important
+        }
+        .ArrangeFlex{
+            display:block!important;
+        }
+}

@@ -1,0 +1,27 @@
+// Modal
+#veiculos.modal.fade(tabindex='-1', role='dialog', aria-labelledby='veiculosLabel')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') ×
+        h4#veiculosLabel.modal-title
+          i.fa.fa-users
+          |   Agência
+      .modal-body
+        ul.list-unstyled.CutHere
+          li
+            span(class='Box--sm text-white bg-green milli') Publicado 
+            a.lineForLabel(href='#')               
+              |&nbsp; Rendering problems can arise Rendering problems can arise Rendering problems can arise
+          li
+            span(class='Box--sm text-white bg-warning milli') Em revisão
+            a.lineForLabel(href='#')
+              |&nbsp; Rendering problems can arise
+          li
+            span(class='Box--sm text-white bg-error milli') Privado  
+            a.lineForLabel(href='#')
+              |&nbsp; Rendering problems can arise
+
+      .modal-footer
+        button.btn.btn-default(type='button', data-dismiss='modal') Fechar

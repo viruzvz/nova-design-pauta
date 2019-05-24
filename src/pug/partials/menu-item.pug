@@ -1,0 +1,108 @@
+.Painel.Painel--lg.Painel--border.u-spacer--sm#menu-item--status
+  ul.Segments
+    li.Apex.Apex--cut.zeta(class='+white +senado')
+      .Box.Box--sm
+        i.fa.fa-sliders
+        strong  Status
+    li.Painel.Painel--vert
+      ul.list-unstyled.CutHere.CutHere--lg
+        li.Box.Box--normal(role='item Geral')
+          .Arrange.type-status
+            .Arrange-sizeFit.eta.fa-fix
+              i.interruptor.on.text-success.fa.fa-check-circle &nbsp;
+              i.interruptor.off.text-danger.fa.fa-minus-circle &nbsp;
+            .Arrange-sizeFill
+              select.status.form-control(name='', value='')
+                option.text-success(value='on') Disponível
+                option.text-danger(value='off') Derrubar
+
+        li.Box.Box--normal(role='Comap')
+          select.form-control(name='', value='')
+            option Criação
+            option Cancelar
+            option Colocar em stand by
+            option Concluir
+            option Enviar para aprovação
+            option Enviar para marketing
+            option Enviar para produção
+            option Resetar
+
+        li.Box.Box--normal(role='Agencia')
+          .Arrange.type-status2
+            .Arrange-sizeFit.eta.fa-fix
+              i.interruptor2.producao.text-warning.fa.fa-cog &nbsp;
+              i.interruptor2.engavetar.text-muted.fa.fa-archive &nbsp;
+              i.interruptor2.publicar.text-success.fa.fa-thumbs-o-up &nbsp;
+              i.interruptor2.fotografo.fa.fa-camera &nbsp;
+              i.interruptor2.privado.text-danger.fa.fa-exclamation-triangle &nbsp;
+            .Arrange-sizeFill
+              select.status2.form-control(name='', value='')
+                option(value='producao') Em Produção
+                option(value='engavetar') Engavetar
+                option(value='publicar') Publicar
+                option(value='fotografo') Solicitar Fotógrafo
+                option(value='privado') Privado
+        mixin links (href, toggle, modal, icon, name)
+          li.Box.Box--normal
+            a(href=href data-toggle=toggle, data-target=modal)
+              i.fa(class=icon)
+              |  #{name}
+        +links('#', 'modal', '#historico', 'fa-chevron-right', 'Histórico')
+
+.Painel.Painel--lg.Painel--border.u-spacer--sm#menu-item--apoio
+  ul.Segments
+    li.Apex.Apex--cut.zeta(class='+white +senado')
+      .Box.Box--sm
+        i.fa.fa-plus
+        strong  Apoio
+    li.Painel.Painel--vert
+      ul.list-unstyled.CutHere.CutHere--lg
+        li
+          .panel.panel-default
+            .s-bar.s-bar--background
+              .ArrangeFlex
+                .ArrangeFlex-sizeFit.Box.Box--lg
+                  i.fa.fa-globe
+                .ArrangeFlex-sizeFill.Box--y.Box--lg
+                  h2.milli.s-bar--text
+                    strong Todos
+
+            .panel-body#collapse-todos.in
+              .CutHere.CutHere--lg
+                p: a(href='#') Link 01
+                p: a(href='#') Link 02
+                p: a(href='#') Link 03
+        +links('#', 'modal', '#adicionarLink', 'fa-chevron-right', 'Adicionar link')
+        +links('#', 'modal', '#novoArquivo', 'fa-chevron-right', 'Novo arquivo')
+        +links('#', 'modal', '#itensProducaoRelacionados', 'fa-chevron-right', 'Itens de produção relacionados')
+        +links('#', 'modal', '#checkpoint', 'fa-chevron-right', 'Criar Checkpoint')
+        +links('#', 'modal', '#andamentoModal', 'fa-chevron-right', 'Criar Andamento')
+.Painel.Painel--lg.Painel--border.u-spacer--sm#menu-item--controle
+  ul.Segments
+    li.Apex.Apex--cut.zeta(class='+white +senado')
+      .Box.Box--sm
+        i.fa.fa-cog
+        strong  Controle
+    li.Painel.Painel--vert
+      ul.list-unstyled.CutHere.CutHere--lg
+        +links('paginaInicial--editarItemPautaGeral.html', '', '', 'fa-chevron-right', 'Editar item')
+        +links('#', 'modal', '#excluirItem', 'fa-chevron-right', 'Excluir item')
+        +links('#', 'modal', '#replicarItem', 'fa-chevron-right', 'Replicar item')
+        +links('#', 'modal', '#reordenacaoItens', 'fa-chevron-right', 'Reordenar Itens dos veículos')
+        +links('#', 'modal', '#visualizarItemGeral', 'fa-chevron-right', 'Visualizar item geral')
+        +links('editarItemComap.html', '', '', 'fa-chevron-right', 'Editar item')
+        +links('editarItemAgencia.html', '', '', 'fa-chevron-right', 'Editar item')
+        +links('editarItemComInterna.html', '', '', 'fa-chevron-right', 'Editar item')
+        mixin btn-turn(name, id, label)
+          li.Box.Box--normal.row
+            .col-md-9.col-xs-9
+              i.fa.fa-chevron-right
+              |  #{name}&nbsp;
+            .col-md-3.col-xs-3
+              .onoffswitch(style='margin-left:-10px;')
+                input.onoffswitch-checkbox(id=id type='checkbox', name='onoffswitch', checked='')
+                label.onoffswitch-label(for=label)
+                  span.onoffswitch-inner
+                  span.onoffswitch-switch
+        +btn-turn('Notificar alterações', 'btn1', 'btn1')
+        +btn-turn('Acompanhar item', 'btn2', 'btn2')

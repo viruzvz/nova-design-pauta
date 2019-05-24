@@ -1,0 +1,63 @@
+.graph
+  .legenda.text-right
+    .timeslot-icon
+      i.fa.fa-clock-o
+    | andamento
+    .timeslot-icon
+      i.fa.fa-map-marker
+    | checkpoint
+  .timeline
+    mixin timeslot(nome, detalhes, modal, button, icon, title, date, time)
+      .timeslot
+        .task
+          span
+            span.type
+              .Flag
+                .Flag-figure.Flag-Figure--maxwidth-xs
+                  img.img-responsive.img-circle(src='assets/img/avatar.jpg')
+                .Flag-body
+                  a(href='editarPerfil.html')
+                    small #{nome}
+            span.details
+              | #{detalhes}
+              br
+              if button
+                  button.btn.btn-info.btn-xs(type='button', data-toggle='modal', data-target=modal)  #{button}
+              else
+          .arrow
+        .timeslot-icon
+          i.fa(class=icon data-toggle='tooltip', title=title)
+        .time
+          .date-a #{date}
+          .time-b #{time}
+
+    mixin timeslotAlt(nome, detalhes, modal, button, icon, title, date, time)
+      .timeslot.alt
+        .task
+          span
+            span.type
+              .Flag
+                .Flag-figure.Flag-Figure--maxwidth-xs
+                  img.img-responsive.img-circle(src='assets/img/avatar.jpg')
+                .Flag-body
+                  a(href='editarPerfil.html')
+                    small #{nome}
+            span.details
+              | #{detalhes}
+              br
+              if button
+                  button.btn.btn-info.btn-xs(type='button', data-toggle='modal', data-target=modal)  #{button}
+              else
+          .arrow
+        .timeslot-icon
+          i.fa(class=icon data-toggle='tooltip', title=title)
+        .time
+          .date-a #{date}
+          .time-b #{time}
+
+    +timeslot('Carlos Eduardo Gomes Neri','Editado ["Categoria do trabalho"]','', '','fa-clock-o', 'andamento', '27/09/2016','17:53')
+    +timeslotAlt('Roberta Almeira Silva Soares','criação da identidade visual','#editarCheckpoint', 'Editar','fa-map-marker','checkpoint', '26/09/2016','15:46')
+    +timeslot('Carlos Eduardo Gomes Neri','Editado ["Categoria do trabalho"]','', '','fa-clock-o', 'andamento', '27/09/2016','17:53')
+    +timeslotAlt('Márcio felipe Campos','Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '#editarAndamentoModal', 'Editar','fa-clock-o','andamento', '26/09/2016','15:46')
+    +timeslot('Carlos Eduardo Gomes Neri','Editado ["Categoria do trabalho"]','', '','fa-clock-o', 'andamento', '27/09/2016','17:53')
+    +timeslotAlt('Roberta Almeira Silva Soares','Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.','#editarCheckpoint', 'Editar','fa-map-marker', 'checkpoint', '26/09/2016','15:46')

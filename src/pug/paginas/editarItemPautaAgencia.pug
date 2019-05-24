@@ -1,0 +1,84 @@
+.row
+  .col-md-12
+    .panel.panel-default
+      .s-bar.s-bar--background
+        .ArrangeFlex
+          .ArrangeFlex-sizeFit.Box.Box--lg
+            i.fa.fa-pencil
+          .ArrangeFlex-sizeFill.Box--y.Box--lg
+            h2.milli.s-bar--text
+              strong Editar item de pauta da agência
+          .ArrangeFlex-sizeFit.Box--y.Box--lg.s-bar--columnLeft
+            a.toggle.eta.btn-sBar(href='#collapse-box' data-toggle="collapse" aria-expanded='true')
+              i.fa.fa-chevron-up
+              i.fa.fa-chevron-down
+      .panel-body#collapse-box.in 
+        form(name='editarItemPautaAgenciaForm')
+          .form-group
+            .row
+              .col-md-3.col-xs-8
+                label(for='dataProducao') 
+                  | Data de produção
+                  span(class='+red--color', data-toggle="tooltip", data-placement="top", title="Item Obrigatório") *
+
+                .input-group.date(data-provide='datepicker', data-date-format="dd/mm/yyyy")
+                  input#dataProducao.form-control(type='text', placeholder='dd/mm/aaaa', required)
+                  .input-group-addon
+                    span.fa.fa-calendar
+          .form-group
+            label(for='horário')
+              | Horário 
+              span(class='+red--color', data-toggle="tooltip", data-placement="top", title="Item Obrigatório") *
+            .row
+              .col-md-2.col-xs-4.dot-timer
+                select#horario.form-control(name='hh', required)
+                  option(value='') 00
+                  option(value='08') 08
+              .col-md-2.col-xs-4
+                select.form-control(name='mm', required)
+                  option(value='') 00
+                  option(value='01') 01
+          .form-group
+            label(for='local') Local
+            input#local.form-control(type='text', name='local')          
+          .form-group
+            label(for='editoria')
+              | Editoria Agência
+              span(class='+red--color', data-toggle="tooltip", data-placement="top", title="Item Obrigatório") *
+            select#editoria.form-control(name='editoria', required)
+              option(value='') Selecionar
+              option(value='Artigo') Artigo
+          .form-group
+            label(for='assunto')
+              | Assunto 
+              span(class='+red--color', data-toggle="tooltip", data-placement="top", title="Item Obrigatório") *
+            input#assunto.form-control(type='text', required)
+          .form-group
+            label(for='descricaoTinyMce') Descrição
+            textarea#descricaoTinyMce.descricaoTinyMce.tinyMce.form-control(name='descricaoTinyMce', cols='100', rows='10')
+          .form-group
+            label(for='ordenacao') 
+              | Ordenação
+              span(class='+red--color', data-toggle="tooltip", data-placement="top", title="Item Obrigatório") *
+            input#ordenacao.form-control(type='text', name='ordenacao', required)
+          .form-group
+            label(for='reporter') Repórter(es)
+          .form-group
+            label(for='fotografo') Fotógrafo(s)
+          .form-group
+            label(for='observacoesPauta') Observações da Pauta/Reportagem
+            textarea#observacoesPauta.form-control(name='observacoesPauta', cols='100', rows='2')
+          .form-group
+            label(for='observacoesFoto') Observações de Fotografia
+            textarea#observacoesFoto.form-control(name='observacoesFoto', cols='100', rows='2')
+          .form-group
+            label(for='noticiasGeradas') Notícias geradas
+            input#noticiasGeradas.form-control(type='text', name='noticiasGeradas') 
+
+
+
+          .form-group.pull-right
+            button.btn.btn-primary(type='submit') Editar
+            | &nbsp;
+            a.btn.btn-default(href='paginaInicial--itemPautaGeral.html', data-dismiss='modal') Cancelar
+

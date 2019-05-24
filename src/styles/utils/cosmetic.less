@@ -1,0 +1,80 @@
+/////////////////////////////////////////// Estilo do tema aplicado em Navbar, Collapse e BreadCrumb
+.s-bar {
+  box-shadow: inset 0 0 1px 1px #fff,0 2px 1px -1px rgba(0,0,0,0.05);
+}
+.s-bar--reset {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.s-bar--inline {
+  > li {display: inline-block;}
+}
+.s-bar-borderLight {
+  border: 1px solid #f4f4f4;
+}
+.btn-sBar {
+  padding:10px 16px;
+}
+.s-bar--gradient {
+  background: linear-gradient(#f8f8f8, #eee);
+}
+.s-bar--background {
+  border-radius: 0;
+  border-bottom: 1px solid @c2;
+  position: relative;
+  box-shadow: inset 0 0 1px 1px #fff;
+  background-color: #f5f5f5;
+}
+.s-bar--text {
+  display: inline-block;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.s-bar--borderBottom {
+  border-bottom: 1px solid @c2;
+}
+.s-bar--columnLeft {
+  border-left:1px solid @c2;
+  box-shadow: 1px 0px 0px white inset, -1px 0px 0px white;
+}
+.s-bar--columnRight {
+  border-right:1px solid @c2;
+  box-shadow: -1px 0px 0px white inset, 1px 0px 0px white;
+}
+.s-bar-circle {
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  background-color: #f4f4f4;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+audio {
+  height: 25px;
+  background-color: #f1f3f4;
+}
+.s-bar-timeline {
+  &:before {
+    border-left: 2px solid @c1;
+    content:"";
+    position: absolute;
+    left: -4.7%;
+    height: 70%;
+    bottom: 5%;
+  }
+}
+.s-bar-relative {
+  position: relative;
+}
+@media screen and (max-width: 760px) {
+  .s-bar-nopadding--xs {
+    padding:0 !important;
+  }
+  .s-bar-text-fix {
+    text-align: left !important;
+  }
+  .s-bar-block--xs {
+    display: block !important;
+  }
+}

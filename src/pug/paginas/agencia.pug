@@ -1,0 +1,185 @@
+.panel.panel-default
+  .s-bar.s-bar--background
+    .ArrangeFlex.ArrangeFlex--middle
+      .ArrangeFlex-sizeFit.Box.Box--lg
+        i.fa.fa-users
+      .ArrangeFlex-sizeFill.Box--y.Box--lg
+        h2.milli.s-bar--text
+          strong Agência
+      .ArrangeFlex-sizeFit
+        ul.nav.navbar-nav
+          li#btn-navbar--link.dropdown.text-center.hidden-xs
+            a.navbar-action.zeta.dropdown-toggle(href='#', data-toggle='dropdown')
+              span.seta-dropdown-menu.hidden-xs 
+              i.fa.fa-link
+            ul.dropdown-menu.dropdown-menu--bar.dropdown-menu--lg.pull-right
+              li.Box.Box--lg.eta(class="+white +senado")
+                i.fa.fa-link
+                strong  Links
+              li.Box.Box--lg.scroll
+                ul.list-unstyled.CutHere
+                  mixin li
+                    li: a(href='#') 
+                      i.fa.fa-chevron-right
+                      |  Lorem ipsum dolor sit amet, consectetur
+                  +li
+                  +li
+                  +li
+                  +li
+          li#btn-navbar--calendar.dropdown.text-center.hidden-xs
+            a.navbar-action.zeta.dropdown-toggle(href='#', data-toggle='dropdown')
+              span.seta-dropdown-menu.hidden-xs
+              i.fa.fa-calendar
+            ul.dropdown-menu.dropdown-menu--bar.dropdown-menu--lg.pull-right
+              li(class="+white")
+                .Box.Box--lg
+                  .datepicker(data-date='12/03/2012')
+                  input(type='hidden')
+          li#btn-navbar--bell.dropdown.text-center.hidden-xs
+            a.navbar-action.zeta.dropdown-toggle(href='#', data-toggle='dropdown')
+              span.seta-dropdown-menu.hidden-xs
+              i.fa.fa-bell
+              span.badge.badge--unread.micro 6
+            ul.dropdown-menu.dropdown-menu--bar.dropdown-menu--lg.pull-right
+              li.Box.Box--lg.eta(class="+white +senado")
+                i.fa.fa-bell
+                strong  Avisos
+              li.Box.Box--lg.CutHere.scroll
+                +item('01/12/2016', 'Relação de senadores está no item "COP 21 2015" na área de grandes Temas.', 'Renina Sangermano Valejo','google.com','Em produção', 'label-primary')
+                +item('26/11/2016', 'Acabei de falar com a Taís, da CRE, e a reunião está mesmo cancelada.', 'Sabrina Mancio','','Parado', 'label-danger')
+                +item('01/12/2016', 'Relação de senadores está no item "COP 21 2015" na área de grandes Temas.', 'Renina Sangermano Valejo','google.com','Ativo', 'label-info')
+                +item('26/11/2016', 'Acabei de falar com a Taís, da CRE, e a reunião está mesmo cancelada.', 'Sabrina Mancio','','Finalizado', 'label-success')
+              li(class="+white")
+                a.normalis(href='#' data-toggle="modal" data-target="#novo-aviso" class="+senado")
+                  .Box.Box--y
+                    i.fa.fa-plus 
+                    strong  Adicionar Aviso
+              +botoes('gerenciarAvisosGerais.html', 'fa-cog', 'Gerenciar avisos')
+          li#btn-navbar--link.dropdown.text-center.s-bar--columnLeft
+            a.toggle.eta.btn-sBar(href='#collapse-box' data-toggle="collapse" aria-expanded='true')
+              i.fa.fa-chevron-up
+              i.fa.fa-chevron-down
+
+
+
+
+
+
+
+  .panel-body#collapse-box.in
+    include ../partials/navbar-nav--secundaria
+    // Nav tabs
+    ul.nav.nav-tabs(role='tablist')
+      li.active(role='presentation')
+        a(href='#pautadia', aria-controls='pautadia', role='tab', data-toggle='tab') Pautas do dia
+      li(role='presentation')
+        a(href='#pautafutura', aria-controls='pautafutura', role='tab', data-toggle='tab') Pautas futuras
+    // Tab panes
+    .tab-content
+      #pautadia.tab-pane.active(role='tabpanel')
+        .row
+          .col-md-4
+            .Box.Box--lg.Box--y
+              form.form-group
+                .input-group.date(data-provide='datepicker', data-date-format="dd/mm/yyyy")
+                  input#dataPublicacao.form-control(type='text', placeholder='dd/mm/aaaa')
+                  .input-group-addon
+                    span.fa.fa-calendar
+
+          .col-md-8.text-right
+            mixin btn-impress(title, icon, name)
+              button.btn.btn-xs.btn-default(type='button', title=title, data-toggle='tooltip')
+                i.fa(class=icon)
+                |  #{name}
+            .Box.Box--lg.Box--y
+              form.form-group
+                .btn-block
+                  +btn-impress('Imprimir tudo', 'fa-print', 'Tudo')
+                  +btn-impress('Imprimir manhã', 'fa-print', 'Manhã')
+                  +btn-impress('Imprimir tarde', 'fa-print', 'Tarde')
+
+        mixin thead-weather(alert, label, iclass, turno, text)
+          thead.thead-visible
+            tr(class=alert)
+              th(colspan='5')
+                .label.pull-left.normalis(class=label)
+                  i.fa(class=iclass)
+                  =turno
+                .text-center #{text}
+        mixin thead(head1, head2, head3, head4, head5)
+          thead
+            tr
+              th #{head1}
+              th #{head2}
+              th #{head3}
+              th #{head4}
+              th #{head5}
+        mixin tbody(cond1, cond2, cond3, cond33, cond333, cond4, cond5, cond6)
+          tbody
+            tr
+              td(data-th='Hora')
+                i.fa.fa-clock-o
+                |  #{cond1}
+              td(data-th='Assunto')
+                a(href='itemAgencia.html')
+                  =cond2
+              td(data-th='Equipe')
+                .Box.Box--y
+                  i.fa(class=cond3, data-toggle='tooltip', title=cond33)
+                  |  #{cond333}
+              td(data-th='Situalção/Observação')
+                =cond4
+              td(data-th='Status')
+                .eta
+                  i.fa(class=cond5 data-toggle='tooltip' title=cond6)
+
+        // Manhã
+        table.table.table-striped.table-hover.table-rp.milli
+
+          +thead-weather('alert-info', 'label-info', 'fa-sun-o', 'Manhã', 'Presidência')
+          +thead('Hora', 'Assunto', 'Equipe', 'Situação/Observações', 'Status')
+          +tbody('08:00', 'Lorem ipsum dolor sit amet, consectetur', 'fa-camera', 'Fotografo', 'Jane Maria de Araújo Neves', '...', 'fa-cog text-warning', 'Em Produção')
+
+        table.table.table-striped.table-hover.table-rp.milli
+          +thead-weather('alert-info', 'label-info', 'fa-sun-o', 'Manhã', 'Demais Pautas')
+          +thead('Hora', 'Assunto', 'Equipe', 'Situação/Observações', 'Status')
+          +tbody('08:00', 'Lorem ipsum dolor sit amet, consectetur', 'fa-microphone', 'Reporter', 'Iara Guimarães Altafin', '...', 'fa-exclamation-triangle text-danger', 'Privado')
+
+        // Manhã
+        table.table.table-striped.table-hover.table-rp.milli
+
+          +thead-weather('alert-warning', 'label-warning', 'fa-sun-o', 'Tarde', 'Presidência')
+          +thead('Hora', 'Assunto', 'Equipe', 'Situação/Observações', 'Status')
+          +tbody('08:00', 'Lorem ipsum dolor sit amet, consectetur', 'fa-camera', 'Fotografo', 'Carlos Eduardo Gomes Neri', '...', 'fa-archive text-muted', 'Gaveta')
+
+        table.table.table-striped.table-hover.table-rp.milli
+          +thead-weather('alert-warning', 'label-warning', 'fa-sun-o', 'Tarde', 'Demais Pautas')
+          +thead('Hora', 'Assunto', 'Equipe', 'Situação/Observações', 'Status')
+          +tbody('08:00', 'Lorem ipsum dolor sit amet, consectetur', 'fa-microphone', 'Reporter', 'Carlos Eduardo Gomes Neri', '...', 'fa-thumbs-o-up text-success', 'Publicado')
+
+
+
+      #pautafutura.tab-pane(role='tabpanel')
+        .row
+          .col-md-4
+            .Box.Box--lg.Box--y
+              form.form-group
+                .input-group.date(data-provide='datepicker', data-date-format="dd/mm/yyyy")
+                  input#dataPublicacao.form-control(type='text', placeholder='dd/mm/aaaa')
+                  .input-group-addon
+                    span.fa.fa-calendar
+
+          .col-md-8.text-right
+            mixin btn-impress(title, icon, name)
+              button.btn.btn-xs.btn-default(type='button', title=title, data-toggle='tooltip')
+                i.fa(class=icon)
+                |  #{name}
+            .Box.Box--lg.Box--y
+              form.form-group
+                .btn-block
+                  +btn-impress('Imprimir', 'fa-print', 'Imprimir')
+        .table-responsive
+          table.table.table-striped.table-hover.milli
+            +thead-weather('alert-info', 'label-info fa-sun-o', 'Manhã', 'Presidência')
+            +thead('Hora', 'Assunto', 'Equipe', 'Situação/Observações', 'Status')
+            +tbody('08:00', 'Lorem ipsum dolor sit amet, consectetur', 'fa-camera', 'Fotografo', 'Jane Maria de Araújo Neves', '', 'fa-plus-circle text-success', 'Em Produção')
