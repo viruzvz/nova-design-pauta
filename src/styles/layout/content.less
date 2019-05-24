@@ -4,6 +4,9 @@ html, #sfcss  {
   padding: 0;
   margin: 0;
 }
+body {
+  height: 100%;
+}
 #sfcss {
   display: flex;
   flex-direction: row;
@@ -11,8 +14,10 @@ html, #sfcss  {
 }
 .login {
   background-color: @c1;
-  display: block;
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  height: 100%;
   a {
     color: #999;
     &:hover {
