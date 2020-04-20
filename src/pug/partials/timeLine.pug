@@ -1,63 +1,114 @@
-.graph
-  .legenda.text-right
-    .timeslot-icon
-      i.fa.fa-clock-o
-    | andamento
-    .timeslot-icon
-      i.fa.fa-map-marker
-    | checkpoint
-  .timeline
-    mixin timeslot(nome, detalhes, modal, button, icon, title, date, time)
-      .timeslot
-        .task
-          span
-            span.type
-              .Flag
-                .Flag-figure.Flag-Figure--maxwidth-xs
-                  img.img-responsive.img-circle(src='assets/img/avatar.jpg')
-                .Flag-body
-                  a(href='editarPerfil.html')
-                    small #{nome}
-            span.details
-              | #{detalhes}
-              br
-              if button
-                  button.btn.btn-info.btn-xs(type='button', data-toggle='modal', data-target=modal)  #{button}
-              else
-          .arrow
-        .timeslot-icon
-          i.fa(class=icon data-toggle='tooltip', title=title)
-        .time
-          .date-a #{date}
-          .time-b #{time}
+mixin timeslot(nome, detalhes, modal, button, color, icon, title, date, time)
+  .timeslot
+    .task
+      span
+        span.type
+          .Flag
+            .Flag-figure.Flag-Figure--maxwidth-xs
+              img.img-responsive.img-circle(src='assets/img/avatar.jpg')
+            .Flag-body
+              a(href='editarPerfil.html')
+                small #{nome}
+        span.details
+          | #{detalhes}
+          br
+          if button
+              button.btn.btn-info.btn-xs(type='button', data-toggle='modal', data-target=modal)  #{button}
+          else
+      .arrow
+    .timeslot-icon(class=color)
+      i.fa(class=icon data-toggle='tooltip', title=title)
+    .time
+      .date-a #{date} &nbsp;
+      .time-b #{time} &nbsp;
 
-    mixin timeslotAlt(nome, detalhes, modal, button, icon, title, date, time)
-      .timeslot.alt
-        .task
-          span
-            span.type
-              .Flag
-                .Flag-figure.Flag-Figure--maxwidth-xs
-                  img.img-responsive.img-circle(src='assets/img/avatar.jpg')
-                .Flag-body
-                  a(href='editarPerfil.html')
-                    small #{nome}
-            span.details
-              | #{detalhes}
-              br
-              if button
-                  button.btn.btn-info.btn-xs(type='button', data-toggle='modal', data-target=modal)  #{button}
-              else
-          .arrow
-        .timeslot-icon
-          i.fa(class=icon data-toggle='tooltip', title=title)
-        .time
-          .date-a #{date}
-          .time-b #{time}
+mixin timeslotAlt(nome, detalhes, modal, button, color, icon, title, date, time)
+  .timeslot.alt
+    .task
+      span
+        span.type
+          .Flag
+            .Flag-figure.Flag-Figure--maxwidth-xs
+              img.img-responsive.img-circle(src='assets/img/avatar.jpg')
+            .Flag-body
+              a(href='editarPerfil.html')
+                small #{nome}
+        span.details
+          | #{detalhes}
+          br
+          if button
+              button.btn.btn-info.btn-xs(type='button', data-toggle='modal', data-target=modal)  #{button}
+          else
+      .arrow
+    .timeslot-icon(class=color)
+      i.fa(class=icon data-toggle='tooltip', title=title)
+    .time
+      .date-a #{date} &nbsp;
+      .time-b #{time} &nbsp;
 
-    +timeslot('Carlos Eduardo Gomes Neri','Editado ["Categoria do trabalho"]','', '','fa-clock-o', 'andamento', '27/09/2016','17:53')
-    +timeslotAlt('Roberta Almeira Silva Soares','criação da identidade visual','#editarCheckpoint', 'Editar','fa-map-marker','checkpoint', '26/09/2016','15:46')
-    +timeslot('Carlos Eduardo Gomes Neri','Editado ["Categoria do trabalho"]','', '','fa-clock-o', 'andamento', '27/09/2016','17:53')
-    +timeslotAlt('Márcio felipe Campos','Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '#editarAndamentoModal', 'Editar','fa-clock-o','andamento', '26/09/2016','15:46')
-    +timeslot('Carlos Eduardo Gomes Neri','Editado ["Categoria do trabalho"]','', '','fa-clock-o', 'andamento', '27/09/2016','17:53')
-    +timeslotAlt('Roberta Almeira Silva Soares','Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.','#editarCheckpoint', 'Editar','fa-map-marker', 'checkpoint', '26/09/2016','15:46')
+// Responsive Select, on only in xs
+.visible-xs
+  .form-group
+    label(for='mySelect') Selecione
+    select.mySelect.select-nav.form-control
+      mixin option(value, name)
+        option(value=value) #{name}
+      +option('#todos', 'Todos')
+      +option('#andamento2', 'Andamento')
+      +option('#checkpoint', 'Checkpoint')
+      +option('#produtos', 'Produtos')
+
+ul.nav.nav-tabs.hidden-xs(role='tablist')
+  li.active(role='presentation')
+    a(href='#todos', aria-controls='todos', role='tab', data-toggle='tab')
+      .timeslot-icon.tab-timeline
+        i.fa.fa-globe
+      | Todos &nbsp;
+  li(role='presentation')
+    a(href='#andamento2', aria-controls='andamento2', role='tab', data-toggle='tab')
+      .timeslot-icon.tab-timeline
+        i.fa.fa-clock-o
+      | Andamento &nbsp;
+  li(role='presentation')
+    a(href='#checkpoint', aria-controls='checkpoint', role='tab', data-toggle='tab')
+      .timeslot-icon.bg-primary.tab-timeline
+        i.fa.fa-map-marker
+      | Checkpoint &nbsp;
+  li(role='presentation')
+    a(href='#produtos', aria-controls='produtos', role='tab', data-toggle='tab')
+      .timeslot-icon.tab-timeline
+        i.fa.fa-product-hunt
+      | Produto &nbsp;
+
+.graph.tab-content
+  #todos.tab-pane.active(role='tabpanel')
+    .timeline
+      +timeslot('Carlos Eduardo Gomes Neri','Editado ["Categoria do trabalho"]','', '','','fa-clock-o', 'andamento', '27/09/2016','17:53')
+      +timeslotAlt('Roberta Almeira Silva Soares','criação da identidade visual','#editarCheckpoint', 'Editar','bg-primary','fa-map-marker','checkpoint', '26/09/2016','15:46')
+      +timeslot('Carlos Eduardo Gomes Neri','Editado ["Categoria do trabalho"]','', '','','fa-clock-o', 'andamento', '27/09/2016','17:53')
+      +timeslotAlt('Roberta Almeira Silva Soares','criação da identidade visual','#editarCheckpoint', 'Editar','bg-success','fa-product-hunt','produto concluído', '26/09/2016','')
+      +timeslot('Carlos Eduardo Gomes Neri','Editado ["Categoria do trabalho"]','', '','','fa-clock-o', 'andamento', '27/09/2016','17:53')
+      +timeslotAlt('Roberta Almeira Silva Soares','criação da identidade visual','#editarCheckpoint', 'Editar','bg-warning','fa-product-hunt','produto previsto', '26/09/2016','')
+      +timeslot('Carlos Eduardo Gomes Neri','Editado ["Categoria do trabalho"]','', '','','fa-clock-o', 'andamento', '27/09/2016','17:53')
+      +timeslotAlt('Roberta Almeira Silva Soares','criação da identidade visual','#editarCheckpoint', 'Editar','bg-danger','fa-product-hunt','produto cancelado', '26/09/2016','')
+      +timeslot('Carlos Eduardo Gomes Neri','Editado ["Categoria do trabalho"]','', '','','fa-clock-o', 'andamento', '27/09/2016','17:53')
+      +timeslotAlt('Márcio felipe Campos','Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '#editarAndamentoModal', 'Editar','bg-primary','fa-map-marker','andamento', '26/09/2016','15:46')
+      +timeslot('Carlos Eduardo Gomes Neri','Editado ["Categoria do trabalho"]','', '','','fa-clock-o', 'andamento', '27/09/2016','17:53')
+      +timeslotAlt('Roberta Almeira Silva Soares','Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.','#editarCheckpoint', 'Editar','bg-primary','fa-map-marker', 'checkpoint', '26/09/2016','15:46')
+  #andamento2.tab-pane(role='tabpanel')
+    .timeline
+      +timeslot('Carlos Eduardo Gomes Neri','Editado ["Categoria do trabalho"]','', '','','fa-clock-o', 'andamento', '27/09/2016','17:53')
+      +timeslot('Carlos Eduardo Gomes Neri','Editado ["Categoria do trabalho"]','', '','','fa-clock-o', 'andamento', '27/09/2016','17:53')
+      +timeslot('Carlos Eduardo Gomes Neri','Editado ["Categoria do trabalho"]','', '','','fa-clock-o', 'andamento', '27/09/2016','17:53')
+      +timeslot('Carlos Eduardo Gomes Neri','Editado ["Categoria do trabalho"]','', '','','fa-clock-o', 'andamento', '27/09/2016','17:53')
+      +timeslot('Carlos Eduardo Gomes Neri','Editado ["Categoria do trabalho"]','', '','','fa-clock-o', 'andamento', '27/09/2016','17:53')
+  #checkpoint.tab-pane(role='tabpanel')
+    .timeline
+      +timeslotAlt('Roberta Almeira Silva Soares','criação da identidade visual','#editarCheckpoint', 'Editar','bg-primary','fa-map-marker','checkpoint', '26/09/2016','15:46')
+      +timeslotAlt('Márcio felipe Campos','Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '#editarAndamentoModal', 'Editar','bg-primary','fa-map-marker','andamento', '26/09/2016','15:46')
+      +timeslotAlt('Roberta Almeira Silva Soares','Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.','#editarCheckpoint', 'Editar','bg-primary','fa-map-marker', 'checkpoint', '26/09/2016','15:46')
+  #produtos.tab-pane(role='tabpanel')
+    .timeline
+      +timeslotAlt('Roberta Almeira Silva Soares','criação da identidade visual','#editarCheckpoint', 'Editar','bg-success','fa-product-hunt','produto concluído', '26/09/2016','')
+      +timeslot('Roberta Almeira Silva Soares','criação da identidade visual','#editarCheckpoint', 'Editar','bg-warning','fa-product-hunt','produto previsto', '26/09/2016','')
+      +timeslotAlt('Roberta Almeira Silva Soares','criação da identidade visual','#editarCheckpoint', 'Editar','bg-danger','fa-product-hunt','produto cancelado', '26/09/2016','')

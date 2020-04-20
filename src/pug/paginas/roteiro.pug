@@ -1,0 +1,179 @@
+.row
+  .col-md-12.col-sm-12
+    p
+      strong Roteiro
+    .form-group
+      .btn-toolbar
+        .btn-group.form-group
+          button.btn.btn-success(type='button' name='nota' title='NOTA') 
+            i.fa.fa-plus
+            | &nbsp; NOTA
+          button.btn.btn-default(type='button' data-toggle="tooltip" data-placement="top" title="Voltar histórico")
+            i.fa.fa-history
+        .btn-group.form-group
+          button.btn.btn-default(type='button' data-toggle="tooltip" data-placement="top" title="Voltar histórico")
+            i.fa.fa-history
+          button.btn.btn-primary(type='button' name='salvar' title='SALVAR')
+            i.fa.fa-floppy-o
+            | &nbsp; SALVAR
+        .btn-group.form-group
+          button.btn.btn-default(type='button' name='' title='importar template') 
+            i.fa.fa-cloud-upload
+            | &nbsp; Importar templete
+        .btn-group.form-group
+          button.btn.btn-default(type='button' name='' title='Salvar template') 
+            i.fa.fa-floppy-o
+            | &nbsp; Salvar templete
+    .form-group
+      label 
+        strong Total duração estimada: 
+        span.label.label-warning 12:00
+    .panel.panel-default
+      .s-bar.s-bar--background
+        .ArrangeFlex
+          .ArrangeFlex-sizeFit.Box.Box--lg.hidden-xs
+            i.fa.fa-arrows
+          .ArrangeFlex-sizeFill.Box--y.Box--lg
+            h2.milli.s-bar--text
+              strong NOTA
+          .ArrangeFlex-sizeFit.Box--y.Box--lg.s-bar--columnLeft
+            a.eta.btn-sBar(href='#' data-toggle="tooltip" data-placement="top" title="Criar Item LOC") LOC
+          .ArrangeFlex-sizeFit.Box--y.Box--lg.s-bar--columnLeft
+            a.eta.btn-sBar(href='#' data-toggle="tooltip" data-placement="top" title="Criar Item Sonora") SONORA
+          .ArrangeFlex-sizeFit.Box--y.Box--lg.s-bar--columnLeft
+            a.eta.btn-sBar(href='#' data-toggle="tooltip" data-placement="top" title="Criar Item TEC") TEC
+          .ArrangeFlex-sizeFit.Box--y.Box--lg.s-bar--columnLeft
+            a.eta.btn-sBar(href='#' data-toggle="tooltip" data-placement="top" title="Excluir NOTA")
+              i.fa.fa-trash
+      .panel-body
+        .form-group
+          label 
+            strong Duração estimada: 
+            span.label.label-info 12:00
+        .form-group
+          .row
+            .col-md-1.col-xs-12
+              .for-group
+                input.form-control(type='text' placeholder='Tempo' name='time')
+            .col-md-5.col-xs-12
+              .for-group
+                input.form-control(type='text' placeholder='Texto' name='texto')
+            .col-md-2.col-xs-12
+              .for-group
+                select.form-control(name='estado')
+                  option(value="Vivo") Vivo
+                  option(value="Off") Off
+            .col-md-4.col-xs-12
+              .for-group
+                select.form-control(name='programa')
+                  option(value="PROGRAMA 1") PROGRAMA 1
+                  option(value="PROGRAMA 2") PROGRAMA 2
+        .Painel--border-dotted.u-spacer--xl
+          .ArrangeFlex.Painel--border
+            .ArrangeFlex-sizeFit.Box.Box--sm.hidden-xs
+              i.fa.fa-arrows
+            .ArrangeFlex-sizeFill.Box--y.Box--sm
+              h2.milli.s-bar--text
+                strong LOC
+            .ArrangeFlex-sizeFit.Box--y.Box--sm.s-bar--columnLeft
+              a.eta.btn-sBar(href='#' data-toggle="tooltip" data-placement="top" title="Excluir item LOC")
+                i.fa.fa-trash
+          .s-bar.s-bar--background.Box.Box--lg
+            textarea.form-control.radio-text-tec(rows='2' style='width:100%').text-uppercase Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea asperiores ad quisquam quia mollitia illum ratione nobis dolores expedita! Fugit quas iste esse optio reiciendis asperiores deserunt ratione molestiae doloribus.
+        .Painel--border-dotted.u-spacer--xl
+          .ArrangeFlex.Painel--border
+            .ArrangeFlex-sizeFit.Box.Box--sm.hidden-xs
+              i.fa.fa-arrows
+            .ArrangeFlex-sizeFill.Box--y.Box--sm
+              h2.milli.s-bar--text
+                strong TEC
+            .ArrangeFlex-sizeFit.Box--y.Box--sm.s-bar--columnLeft
+              a.eta.btn-sBar(href='#' data-toggle="tooltip" data-placement="top" title="Excluir item TEC")
+                i.fa.fa-trash
+          .s-bar.s-bar--background.Box.Box--lg
+            textarea.form-control.radio-text-tec(rows='2' style='width:100%').text-uppercase Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea asperiores ad quisquam quia mollitia illum ratione nobis dolores expedita! Fugit quas iste esse optio reiciendis asperiores deserunt ratione molestiae doloribus.
+        .Painel--border-dotted.u-spacer--xl
+          .ArrangeFlex.Painel--border
+            .ArrangeFlex-sizeFit.Box.Box--sm.hidden-xs
+              i.fa.fa-arrows
+            .ArrangeFlex-sizeFill.Box--y.Box--sm
+              h2.milli.s-bar--text
+                strong SONORA
+            .ArrangeFlex-sizeFit.Box--y.Box--sm.s-bar--columnLeft
+              a.eta.btn-sBar(href='#' data-toggle="tooltip" data-placement="top" title="Subir áudio")
+                i.fa.fa-cloud-upload
+            .ArrangeFlex-sizeFit.Box--y.Box--sm.s-bar--columnLeft
+              a.eta.btn-sBar(href='#' data-toggle="tooltip" data-placement="top" title="Excluir item SONORA")
+                i.fa.fa-trash
+          .s-bar.s-bar--background.Box.Box--lg
+            form
+              .form-group
+                .row
+                  .col-md-1.text-right
+                    label.Box.Box--y(for='queme') QUEM É ?: &nbsp;
+                  .col-md-11
+                    input.form-control(type='text' id='queme')
+                .row
+                  .col-md-1.text-right
+                    label.Box.Box--y(for='tempo') TEMPO: &nbsp;
+                  .col-md-1
+                    input.form-control(type='text' id='tempo')
+                .row
+                  .col-md-1.text-right
+                    label.Box.Box--y(for='texto') TEXTO: &nbsp;
+                  .col-md-11
+                    textarea.form-control(id='texto' cols="50" rows="4")
+              .row
+                .col-md-12
+                  .btn-toolbar
+                    .btn-group
+                      audio.Painel--border(controls='')
+                        source(type='audio/mpeg', src='http://www7hml.senado.gov.br:10003/pauta/radio/avulsos/2019/10/a-voz-do-brasil-teste-fernanda/baixaraudio/190918R01 - teste materia 34.mp3')
+                        | Seu browser não suporta tag audio
+                    .btn-group
+                      button.btn-xs.btn.btn-default(type='button' data-toggle="tooltip" data-placement="top" title="Download áudio") 
+                        i.fa.fa-cloud-download
+                    .btn-group
+                      button.btn-xs.btn.btn-default(type='button' data-toggle="tooltip" data-placement="top" title="Excluir áudio") 
+                        i.fa.fa-trash
+                .col-md-12
+                  .btn-toolbar
+                    .btn-group
+                      audio.Painel--border(controls='')
+                        source(type='audio/mpeg', src='http://www7hml.senado.gov.br:10003/pauta/radio/avulsos/2019/10/a-voz-do-brasil-teste-fernanda/baixaraudio/190918R01 - teste materia 34.mp3')
+                        | Seu browser não suporta tag audio
+                    .btn-group
+                      button.btn-xs.btn.btn-default(type='button' data-toggle="tooltip" data-placement="top" title="Download áudio") 
+                        i.fa.fa-cloud-download
+                    .btn-group
+                      button.btn-xs.btn.btn-default(type='button' data-toggle="tooltip" data-placement="top" title="Excluir áudio") 
+                        i.fa.fa-trash              
+    .form-group
+      p
+        strong Projetos de lei citados
+    .form-group
+      label(for='duracaoTotal') Duração Total
+      input.form-control(type='text' id='duracaoTotal')
+    .form-group
+      label(for='numeroLoc') Número de locutores
+      input.form-control(type='text' id='numeroLoc')
+    .form-group
+      label(for='periodos') Períodos
+      input.form-control(type='text' id='periodos')
+    .form-group
+      label(for='numeroPeriodos') Número de veiculações por período
+      input.form-control(type='text' id='numeroPeriodos')
+    .form-group
+      .btn-toolbar
+        .btn-group.form-group
+          button.btn.btn-primary(type='button')
+            i.fa.fa-floppy-o
+            | &nbsp; Salvar versão e fechar
+        .btn-group.form-group
+          button.btn.btn-danger(type='button')
+            i.fa.fa-times-circle
+            | &nbsp; Fechar sem versionar
+        .btn-group.form-group
+          button.btn.btn-info(type='button')
+            i.fa.fa-search
+            | &nbsp; Buscar citações de projetos
