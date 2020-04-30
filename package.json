@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "bootstrap3": "^3.3.5",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "bootstrap-datepicker": "^1.8.0",
     "font-awesome": "^4.7.0",
     "senado.css": "agenciasenado/senado.css.git#2.6.3"
